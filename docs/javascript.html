@@ -77,7 +77,7 @@
 <header class="jumbotron subhead">
   <div class="container">
     <h1>JavaScript</h1>
-    <p class="lead">Bring Bootstrap's components to life&mdash;now with 13 custom jQuery plugins.
+    <p class="lead">Bring Bootstrap's components to life&mdash;now with 14 custom jQuery plugins.
   </div>
 </header>
 
@@ -102,6 +102,7 @@
           <li><a href="#carousel"><i class="icon-chevron-right"></i> Carousel</a></li>
           <li><a href="#typeahead"><i class="icon-chevron-right"></i> Typeahead</a></li>
           <li><a href="#affix"><i class="icon-chevron-right"></i> Affix</a></li>
+          <li><a href="#datepicker"><i class="icon-chevron-right"></i> Date Picker</a></li>
         </ul>
       </div>
       <div class="span9">
@@ -441,7 +442,7 @@ $('#myModal').on('hidden', function () {
                 </div>
               </div>
             </div> <!-- /navbar-example -->
-          </div> 
+          </div>
 
           <h3>Within tabs</h3>
           <div class="bs-docs-example">
@@ -468,8 +469,8 @@ $('#myModal').on('hidden', function () {
                 </ul>
               </li>
               <li class="dropdown">
-                <a class="dropdown-toggle" id="drop5" role="button" data-toggle="dropdown" href="#">Dropdown 3 <b class="caret"></b></a>
-                <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop5">
+                <a class="dropdown-toggle" id="drop6" role="button" data-toggle="dropdown" href="#">Dropdown 3 <b class="caret"></b></a>
+                <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop6">
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
@@ -478,7 +479,7 @@ $('#myModal').on('hidden', function () {
                 </ul>
               </li>
             </ul> <!-- /tabs -->
-          </div> 
+          </div>
 
 
           <hr class="bs-docs-separator">
@@ -1725,7 +1726,439 @@ $('.carousel').carousel({
           </table>
         </section>
 
+          <!-- Affix
+          ================================================== -->
+          <section id="datepicker">
+            <div class="page-header">
+              <h1>DatePicker <small>bootstrap-datepicker.js</small></h1>
+            </div>
 
+            <h2>Example</h2>
+
+            <p>Attached to a field with the format specified via options:</p>
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+              <input type="text" value="02-16-2012" id="datepicker-example-options">
+            </div>
+            <pre class="prettyprint linenums">&lt;input type="text" value="02-16-2012" id="datepicker"&gt;</pre>
+            <pre class="bs-docs-script prettyprint linenums">
+$('#datepicker').datepicker({
+    format: 'mm-dd-yyyy'
+});</pre>
+
+            <p>Attached to a field with the format specified via data tag:</p>
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+              <input type="text" value="02/16/12" data-date-format="mm/dd/yy" id="datepicker-example-data">
+            </div>
+            <pre class="prettyprint linenums">&lt;input type="text" value="02/16/12" data-date-format="mm/dd/yy" id="datepicker"&gt;</pre>
+            <pre class="bs-docs-script prettyprint linenums">$('#datepicker').datepicker();</pre>
+
+            <p>As component:</p>
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+              <div class="input-append date" id="datepicker-example-component" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                <input size="16" type="text" value="12-02-2012" readonly>
+                <span class="add-on"><i class="icon-calendar"></i></span>
+              </div>
+            </div>
+            <pre class="prettyprint linenums">
+&lt;div class="input-append date" id="datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy"&gt;
+    &lt;input size="16" type="text" value="12-02-2012" readonly&gt;
+    &lt;span class="add-on"&gt;&lt;i class="icon-calendar"&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+            <pre class="bs-docs-script prettyprint linenums">$('#datepicker').datepicker();</pre>
+
+            <p>Start with decade view.</p>
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+							<div class="input-append date" id="datepicker-example-years" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-start-view="decade">
+								<input size="16" type="text" value="12-02-2012" readonly>
+								<span class="add-on"><i class="icon-calendar"></i></span>
+							</div>
+            </div>
+            <pre class="prettyprint linenums">
+&lt;div class="input-append date" id="datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-start-view="decade"&gt;
+    &lt;input size="16" type="text" value="12-02-2012" readonly&gt;
+    &lt;span class="add-on"&gt;&lt;i class="icon-calendar"&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+            <pre class="bs-docs-script prettyprint linenums">$('#datepicker').datepicker();</pre>
+
+            <p>Limit the view mode to months.</p>
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+							<div class="input-append date" id="datepicker-example-months" data-date="02/2012" data-date-format="mm/yyyy" data-date-start-view="year" data-date-min-view-mode="months">
+								<input size="16" type="text" value="02/2012" readonly>
+								<span class="add-on"><i class="icon-calendar"></i></span>
+							</div>
+            </div>
+            <pre class="prettyprint linenums">
+&lt;div class="input-append date" id="datepicker" data-date="102/2012" data-date-format="mm/yyyy" data-date-start-view="year" data-date-min-view-mode="months"&gt;
+    &lt;input size="16" type="text" value="02/2012" readonly&gt;
+    &lt;span class="add-on"&gt;&lt;i class="icon-calendar"&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+            <pre class="bs-docs-script prettyprint linenums">$('#datepicker').datepicker();</pre>
+
+            <p>Attached to non-field element, using events to work with the date values:</p>
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+              <div class="alert alert-error range-error" id="datepicker-example-alert">
+                <strong>Oh snap!</strong>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>
+                      Start date
+                      <a href="#" class="btn small" id="date-start" data-date-format="yyyy-mm-dd" data-date="2012-02-20">Change</a>
+                    </th>
+                    <th>
+                      End date
+                      <a href="#" class="btn small" id="date-end" data-date-format="yyyy-mm-dd" data-date="2012-02-25">Change</a>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="date-start-display">2012-02-20</td>
+                    <td id="date-end-display">2012-02-25</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="prettyprint linenums">
+&lt;div class="alert alert-error" id="alert"&gt;
+    &lt;strong&gt;Oh snap!&lt;/strong&gt;
+&lt;/div&gt;
+&lt;table class="table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;
+              Start date
+              &lt;a href="#" class="btn small" id="date-start" data-date-format="yyyy-mm-dd" data-date="2012-02-20"&gt;Change&lt;/a&gt;
+          &lt;/th&gt;
+          &lt;th&gt;
+              End date
+              &lt;a href="#" class="btn small" id="date-end" data-date-format="yyyy-mm-dd" data-date="2012-02-25"&gt;Change&lt;/a&gt;
+          &lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td id="date-start-display"&gt;2012-02-20&lt;/td&gt;
+          &lt;td id="date-end-display"&gt;2012-02-25&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
+            <pre class="bs-docs-script prettyprint linenums">
+var startDate = new Date(2012,1,20);
+var endDate = new Date(2012,1,25);
+$('#date-start')
+    .datepicker()
+    .on('changeDate', function(ev){
+        if (ev.date.valueOf() &gt; endDate.valueOf()){
+            $('#alert').show().find('strong').text('The start date must be before the end date.');
+        } else {
+            $('#alert').hide();
+            startDate = new Date(ev.date);
+            $('#date-start-display').text($('#date-start').data('date'));
+        }
+        $('#date-start').datepicker('hide');
+    });
+$('#date-end')
+    .datepicker()
+    .on('changeDate', function(ev){
+        if (ev.date.valueOf() &lt; startDate.valueOf()){
+            $('#alert').show().find('strong').text('The end date must be after the start date.');
+        } else {
+            $('#alert').hide();
+            endDate = new Date(ev.date);
+            $('#date-end-display').text($('#date-end').data('date'));
+        }
+        $('#date-end').datepicker('hide');
+    });
+</pre>
+
+            <p>As inline datepicker:</p>
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+              <div id="datepicker-example-inline"></div>
+            </div>
+            <pre class="prettyprint linenums">&lt;div id="datepicker"&gt;&lt;/div&gt;</pre>
+            <pre class="bs-docs-script prettyprint linenums">$('#datepicker').datepicker();</pre>
+
+            <h2>Usage</h2>
+
+            <p>Call the datepicker via javascript:</p>
+            <pre class="prettyprint linenums">$('.datepicker').datepicker()</pre>
+            <h3>Options</h3>
+            <p>All options that take a "Date" can handle a <code>Date</code> object; a String formatted according to the given <code>format</code>; or a timedelta relative to today, eg '-1d', '+6m +1y', etc, where valid units are 'd' (day), 'w' (week), 'm' (month), and 'y' (year).</p>
+
+            <table class="table table-bordered table-striped">
+              <thead>
+               <tr>
+                 <th style="width: 100px;">Name</th>
+                 <th style="width: 50px;">type</th>
+                 <th style="width: 100px;">default</th>
+                 <th>description</th>
+               </tr>
+              </thead>
+              <tbody>
+                <tr>
+                 <td>format</td>
+                 <td>string</td>
+                 <td>'mm/dd/yyyy'</td>
+                 <td>the date format, combination of  d, dd, m, mm, yy, yyy.
+                  <ul>
+                    <li>d, dd: Numeric date, no leading zero and leading zero, respectively.  Eg, 5, 05.</li>
+                    <li>D, DD: Abbreviated and full weekday names, respectively.  Eg, Mon, Monday.</li>
+                    <li>m, mm: Numeric month, no leading zero and leading zero, respectively.  Eg, 7, 07.</li>
+                    <li>M, MM: Abbreviated and full month names, respectively.  Eg, Jan, January</li>
+                    <li>yy, yyyy: 2- and 4-digit years, respectively.  Eg, 12, 2012.</li>
+                  </ul>
+                </td>
+               </tr>
+                <tr>
+                 <td>weekStart</td>
+                 <td>integer</td>
+                 <td>0</td>
+                 <td>day of the week start. 0 for Sunday -  6 for Saturday</td>
+               </tr>
+                <tr>
+                 <td>calendarWeeks</td>
+                 <td>boolean</td>
+                 <td>false</td>
+                 <td>Whether or not to show week numbers to the left of week rows.</td>
+               </tr>
+                <tr>
+                 <td>startDate</td>
+                 <td>Date</td>
+                 <td>Beginning of time</td>
+                 <td>The earliest date that may be selected; all earlier dates will be disabled.</td>
+               </tr>
+                <tr>
+                 <td>endDate</td>
+                 <td>Date</td>
+                 <td>End of time</td>
+                 <td>The latest date that may be selected; all later dates will be disabled.</td>
+               </tr>
+                <tr>
+                 <td>daysOfWeekDisabled</td>
+                 <td>String|Array</td>
+                 <td>''|[]</td>
+                 <td>Days of the week that should be disabled. Values are 0 (Sunday) to 6 (Saturday). Multiple values should be comma-separated. Example: disable weekends: <code>'0,6'</code> or <code>[0,6]</code>.</td>
+               </tr>
+                <tr>
+                 <td>autoclose</td>
+                 <td>Boolean</td>
+                 <td>false</td>
+                 <td>Whether or not to close the datepicker immediately when a date is selected.</td>
+               </tr>
+                <tr>
+                 <td>startView</td>
+                 <td>Number|String</td>
+                 <td>0|'month'</td>
+                 <td>The view that the datepicker should show when it is opened.  Accepts values of 0 or 'month' for month view (the default), 1 or 'year' for the 12-month overview, and 2 or 'decade' for the 10-year overview.  Useful for date-of-birth datepickers.</td>
+               </tr>
+                <tr>
+                 <td>viewMode</td>
+                 <td>string|integer</td>
+                 <td>0 = 'days'</td>
+                 <td>set the start view mode. Accepts: 'days', 'months', 'years', 0 for days, 1 for months and 2 for years</td>
+               </tr>
+                <tr>
+                 <td>minViewMode</td>
+                 <td>string|integer</td>
+                 <td>0 = 'days'</td>
+                 <td>set a limit for view mode. Accepts: 'days', 'months', 'years', 0 for days, 1 for months and 2 for years. Gives the ability to pick only a month or an year.  The day is set to the 1st for 'months', and the month is set to January for 'years'.</td>
+               </tr>
+                <tr>
+                 <td>todayBtn</td>
+                 <td>Boolean|"linked"</td>
+                 <td>false</td>
+                 <td>If true or "linked", displays a "Today" button at the bottom of the datepicker to select the current date.  If true, the "Today" button will only move the current date into view; if "linked", the current date will also be selected.</td>
+               </tr>
+                <tr>
+                 <td>todayHighlight</td>
+                 <td>Boolean</td>
+                 <td>false</td>
+                 <td>If true, highlights the current date.</td>
+               </tr>
+                <tr>
+                 <td>keyboardNavigation</td>
+                 <td>Boolean</td>
+                 <td>true</td>
+                 <td>Whether or not to allow date navigation by arrow keys.</td>
+               </tr>
+                <tr>
+                 <td>language</td>
+                 <td>String</td>
+                 <td>'en'</td>
+                 <td>The IETF code (eg  "en" for English, "pt-BR" for Brazilian Portuguese) of the language to use for month and day names.  These will also be used as the input's value (and subsequently sent to the server in the case of form submissions).  If a full code (eg "de-DE") is supplied the picker will first check for an "de-DE" language and if not found will fallback and check for a "de" language.  If an unknown language code is given, English will be used.  See I18N below.</td>
+               </tr>
+                <tr>
+                 <td>forceParse</td>
+                 <td>Boolean</td>
+                 <td>true</td>
+                 <td>Whether or not to force parsing of the input value when the picker is closed.  That is, when an invalid date is left in the input field by the user, the picker will forcibly parse that value, and set the input's value to the new, valid date, conforming to the given <code>format</code>.</td>
+               </tr>
+              </tbody>
+            </table>
+
+
+            <h3>Markup</h3>
+            <p>Attached to a field with the format specified via data tag.</p>
+<pre class="prettyprint linenums">
+&lt;input type="text" value="02/16/12" data-date-format="mm/dd/yy" id="datepicker"&gt;
+</pre>
+            <p>Format a component.</p>
+<pre class="prettyprint linenums">
+&lt;div class=&quot;input-append date&quot; id=&quot;dp3&quot; data-date=&quot;12-02-2012&quot; data-date-format=&quot;dd-mm-yyyy&quot;&gt;
+  &lt;input class=&quot;span2&quot; size=&quot;16&quot; type=&quot;text&quot; value=&quot;12-02-2012&quot;&gt;
+  &lt;span class=&quot;add-on&quot;&gt;&lt;i class=&quot;icon-th&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+            <h3>Methods</h3>
+            <h4>.datepicker(options)</h4>
+            <p>Initializes an datepicker.</p>
+            <h4>.datepicker('remove')</h4>
+            <p>Remove the datepicker. Removes attached events, internal attached objects, and added HTML elements.</p>
+            <h4>.datepicker('show')</h4>
+            <p>Show the datepicker.</p>
+            <h4>.datepicker('hide')</h4>
+            <p>Hide the datepicker.</p>
+            <h4>.datepicker('update')</h4>
+            <p>Update the datepicker with the current input value.</p>
+            <h4>.datepicker('place')</h4>
+            <p>Updates the date picker's position relative to the element</p>
+            <h4>.datepicker('setValue', value)</h4>
+            <p>Set a new value for the datepicker. It can be a string in the specified format <code>'2012-01-01'</code> or a Date object. Omit or <code>null</code> to unset.</p>
+            <h4>.datepicker('setStartDate', value)</h4>
+            <p>Set a new lower date limit on the datepicker. It can be a string in the specified format <code>'2012-01-01'</code> or a Date object. Omit or <code>null</code> to unset.</p>
+            <h4>.datepicker('setEndDate', value)</h4>
+            <p>Set a new upper date limit on the datepicker. It can be a string in the specified format <code>'2012-01-01'</code> or a Date object. Omit or <code>null</code> to unset.</p>
+            <h4>.datepicker('setDaysOfWeekDisabled', value)</h4>
+            <p>Set the days of week that should be disabled. It can be a string or array in the specified format <code>[0,6]</code> or a Date object. Omit or <code>null</code> to unset.</p>
+
+            <h3>Events</h3>
+            <p>Datepicker class exposes a few events for manipulating the dates.</p>
+            <table class="table table-bordered table-striped">
+              <thead>
+               <tr>
+                 <th style="width: 150px;">Event</th>
+                 <th>Description</th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                 <td>show</td>
+                 <td>This event fires immediately when the date picker is displayed.</td>
+               </tr>
+               <tr>
+                 <td>hide</td>
+                 <td>This event is fired immediately when the date picker is hidden.</td>
+               </tr>
+               <tr>
+                 <td>changeDate</td>
+                 <td>This event is fired when the date is changed.</td>
+               </tr>
+               <tr>
+                 <td>changeYear</td>
+                 <td>This event is fired when the view year is changed from decade view.</td>
+               </tr>
+               <tr>
+                 <td>changeMonth</td>
+                 <td>This event is fired when the view month is changed from year view.</td>
+               </tr>
+               <tr>
+                 <td>onRender</td>
+                 <td>This event is fired when a day is rendered inside the datepicker. Should return a string. Return 'disabled' to disable the day from being selected.</td>
+               </tr>
+              </tbody>
+            </table>
+<pre class="prettyprint linenums">
+$(&#039;#dp5&#039;).datepicker()
+  .on(&#039;changeDate&#039;, function(ev){
+    if (ev.date.valueOf() &lt; startDate.valueOf()){
+      ....
+    }
+  });
+</pre>
+            <h3>Keyboard support</h3>
+            <p>The datepicker includes some keyboard navigation:</p>
+            <table class="table table-bordered table-striped">
+              <thead>
+               <tr>
+                 <th style="width: 150px;">Key</th>
+                 <th>Description</th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                 <td>Escape</td>
+                 <td>The escape key can be used to hide and re-show the datepicker; this is necessary if the user wants to manually edit the value.</td>
+               </tr>
+               <tr>
+                 <td>Enter</td>
+                 <td>When the picker is visible, enter will simply hide it. When the picker is not visible, enter will have normal effects, submitting the current form, etc.</td>
+               </tr>
+               <tr>
+                 <td>Left</td>
+                 <td>Move backward one day</td>
+               </tr>
+               <tr>
+                 <td>Right</td>
+                 <td>Move forward one day</td>
+               </tr>
+               <tr>
+                 <td>Up</td>
+                 <td>Move backward one week</td>
+               </tr>
+               <tr>
+                 <td>Down</td>
+                 <td>Move forward one week</td>
+               </tr>
+               <tr>
+                 <td>Shift-Left / Shift-Up</td>
+                 <td>Move backward one month</td>
+               </tr>
+               <tr>
+                 <td>Shift-Right / Shift-Down</td>
+                 <td>Move forward one month</td>
+               </tr>
+               <tr>
+                 <td>Ctrl-Left / Ctrl-Up</td>
+                 <td>Move backward one year</td>
+               </tr>
+               <tr>
+                 <td>Ctrl-Right / Ctrl-Down</td>
+                 <td>Move forward one year</td>
+               </tr>
+              </tbody>
+            </table>
+            <p>Shift + Ctrl behaves the same as Ctrl. It does not change both month and year simultaneously, only the year.</p>
+
+            <h3>I18N</h3>
+            <p>The plugin supports i18n for the month and weekday names and the <code>weekStart</code> option.  The default is English ('en'); other available translations are avilable in the <code>js/locales/</code> directory, simply include your desired locale after the plugin.  To add more languages, simply add a key to <code>$.fn.datepicker.dates</code>, before calling <code>.datepicker()</code>.  Example:</p>
+<pre class="prettyprint linenums">
+$.fn.datepicker.dates['en'] = {
+    days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+    months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    today: "Today"
+};
+</pre>
+            <p>Right-to-left languages may also include <code>rtl: true</code> to make the calendar display appropriately.</p>
+            <p>If your browser (or those of your users) is displaying characters wrong, chances are the browser is loading the javascript file with a non-unicode encoding.  Simply add <code>charset="UTF-8"</code> to your <code>script</code> tag:</p>
+<pre class="prettyprint linenums">
+&lt;script type="text/javascript" src="bootstrap-datepicker.XX.js" charset="UTF-8"&gt;&lt;/script&gt;
+</pre>
+<pre class="bs-docs-script prettyprint linenums">
+$('.datepicker').datepicker({
+    language: XX    //as you defined in bootstrap-datepicker.XX.js
+});
+</pre>
+
+          </section>
 
       </div>
     </div>
@@ -1771,6 +2204,7 @@ $('.carousel').carousel({
     <script src="assets/js/bootstrap-carousel.js"></script>
     <script src="assets/js/bootstrap-typeahead.js"></script>
     <script src="assets/js/bootstrap-affix.js"></script>
+    <script src="assets/js/bootstrap-datepicker.js"></script>
 
     <script src="assets/js/holder/holder.js"></script>
     <script src="assets/js/google-code-prettify/prettify.js"></script>
